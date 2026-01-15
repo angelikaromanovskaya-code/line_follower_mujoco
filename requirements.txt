@@ -1,1 +1,14 @@
-mujoco
+# requirements.txt для проекта Line Follower
+
+# Основные зависимости
+mujoco==2.3.3
+numpy==1.24.3
+opencv-python==4.8.0
+
+# Для визуализации MuJoCo
+mujoco-viewer==0.0.1
+glfw>=2.5.0
+
+# Дополнительные (рекомендуемые)
+imageio>=2.31.0       
+Pillow>=10.0.0        
