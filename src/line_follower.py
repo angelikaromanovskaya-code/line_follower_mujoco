@@ -19,7 +19,7 @@ class LineFollowerCV:
 
         gray = cv2.cvtColor(img_bgr, cv2.COLOR_RGB2GRAY)
 
-        _, binary = cv2.threshold(gray, 50, 255, cv2.THRESH_BINARY_INV)
+        _, binary = cv2.threshold(gray, 30, 255, cv2.THRESH_BINARY_INV)
 
         def get_roi_value(roi_pos):
             x, y = roi_pos
