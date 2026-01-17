@@ -17,7 +17,7 @@ class LineFollowerCV:
 
         img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
-        gray = cv2.cvtColor(img_bgr, cv2.COLOR_RGB2GRAY)
+        gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
 
         _, binary = cv2.threshold(gray, 30, 255, cv2.THRESH_BINARY_INV)
 
