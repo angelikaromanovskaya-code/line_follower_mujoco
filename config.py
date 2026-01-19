@@ -11,4 +11,4 @@ IMG_HEIGHT = 64
 MAX_NO_LINE = 150
 
 # Пути
-MODEL_PATH = "line_follower_1.xml"
+MODEL_PATH = "line_follower.xml"
