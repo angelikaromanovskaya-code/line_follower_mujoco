@@ -7,7 +7,7 @@
     
     <geom name="floor" type="plane" size="5 5 0.1" rgba="1 1 1 1"/>
     
-    <geom name="line" type="box" size="0.05 3 0.001" pos="0 0 0.01" rgba="0 0 0 1"/>
+    <geom name="line" type="box" size="0.05 3 0.0005" pos="0 0 0.01" rgba="0 0 0 1"/>
 
     <body name="robot" pos="0 3 0.1">
       <freejoint/>
@@ -18,8 +18,8 @@
 
       <camera name="camera_down" 
         mode="fixed" 
-        pos="0 0 -0.05"  
-        euler="90 0 0"
+        pos="0 -0.2 -0.05"  
+        euler="90 180 0"
         fovy="50">
       </camera>
       

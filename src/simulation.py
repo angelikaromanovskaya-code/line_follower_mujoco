@@ -3,7 +3,7 @@ import mujoco.viewer
 import numpy as np
 import time
 import cv2
-from .line_follower import LineFollowerCV
+from line_follower import LineFollowerCV
 import config  # Константы из config.py
 
 def get_camera_image(model, data, camera_name="camera_down", renderer=None):
@@ -30,8 +30,8 @@ def main():
     data = mujoco.MjData(model)
     
     # Начальная позиция робота
-    data.qpos[0] = 0    # x
-    data.qpos[1] = 3    # y (начало линии)
+    data.qpos[0] = 0.3    # x
+    data.qpos[1] = 3.5   # y 
     data.qpos[2] = 0.1  # z
     
     # Инициализируем обработчик CV
@@ -63,6 +63,9 @@ def main():
         # Окно для отображения обработанного изображения
         cv2.namedWindow("Camera View", cv2.WINDOW_NORMAL)
         cv2.resizeWindow("Camera View", 400, 400)
+
+        cv2.namedWindow("Camera View - Original", cv2.WINDOW_NORMAL)
+        cv2.resizeWindow("Camera View - Original", 400, 400)
         
         while viewer.is_running():
             step += 1
@@ -72,6 +75,11 @@ def main():
             
             # Изображение с камеры
             camera_image, renderer = get_camera_image(model, data, "camera_down", renderer)
+
+            if camera_image is not None:
+              orig_display = cv2.resize(camera_image, (400, 400))
+              orig_display = cv2.cvtColor(orig_display, cv2.COLOR_RGB2BGR)
+              cv2.imshow("Camera View - Original", orig_display)
             
             # Обрабатка изображение
             left_val, center_val, right_val = cv_processor.process_image(camera_image)
